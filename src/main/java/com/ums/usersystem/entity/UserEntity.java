@@ -1,9 +1,7 @@
 package com.ums.usersystem.entity;
 
 import jakarta.persistence.*;
-//import lombok.Data;
 
-//@Data
 @Entity
 @Table(name = "users")
 public class UserEntity {
@@ -11,11 +9,8 @@ public class UserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name="first_name", nullable = false)
     private String firstName;
-    @Column(name="last_name")
     private String lastName;
-    @Column(name= "email")
     private String emailId;
 
     public UserEntity(long id, String firstName, String lastName, String emailId) {
@@ -24,7 +19,8 @@ public class UserEntity {
         this.lastName = lastName;
         this.emailId = emailId;
     }
-
+    public UserEntity() {
+    }
     public long getId() {
         return id;
     }
