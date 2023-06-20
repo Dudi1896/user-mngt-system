@@ -1,5 +1,6 @@
-
-import Head from 'next/head'
+import { Navbar } from '@components/Navbar';
+import { UserList } from '@components/UserList';
+import Head from 'next/head';
 
 export default function Home() {
   return (
@@ -7,8 +8,9 @@ export default function Home() {
       <Head>
         <title>User Management App</title>
       </Head>
-
+      <Navbar />
+      <UserList />
       <main>User Management App</main>
     </div>
-  )
+  );
 }
