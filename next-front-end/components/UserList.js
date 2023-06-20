@@ -1,4 +1,30 @@
+import { User } from '@components/User';
+import { useEffect, useState } from 'react';
+
 export const UserList = () => {
+  const [users, setUsers] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      setLoading(true);
+      try {
+        const response = await fetch(process.env.USER_API_BASE_URL, {
+          method: 'GET',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+        });
+        const users = await response.json();
+        setUsers(users);
+      } catch (error) {
+        console.log(error);
+      }
+      setLoading(false);
+    };
+    fetchData();
+  }, []); // Empty dependency array to run the effect only once
+
   return (
     <div className='container mx-auto my-8'>
       <div className='flex shadow border-b'>
@@ -19,33 +45,13 @@ export const UserList = () => {
               </th>
             </tr>
           </thead>
-          <tbody className='bg-white'>
-            <tr>
-              <td className='text-left px-6 py-4 whitespace-nowrap'>
-                <div className='text-sm text-gray-500'>Ray</div>
-              </td>
-              <td className='text-left px-6 py-4 whitespace-nowrap'>
-                <div className='text-sm text-gray-500'>Epps</div>
-              </td>
-              <td className='text-left px-6 py-4 whitespace-nowrap'>
-                <div className='text-sm text-gray-500'>rayepps@gmail.com</div>
-              </td>
-              <td className='text-right px-6 py-4 whitespace-nowrap'>
-                <a
-                  href='#'
-                  className='text-indigo-600 hover:text-indigo-800 hover:cursor-pointer px-4'
-                >
-                  Edit
-                </a>
-                <a
-                  href='#'
-                  className='text-indigo-600 hover:text-indigo-800 hover:cursor-pointer'
-                >
-                  Delete
-                </a>
-              </td>
-            </tr>
-          </tbody>
+          {!loading && (
+            <tbody className='bg-white'>
+              {users?.map((user) => (
+                <User user={user} key={user.id} />
+              ))}
+            </tbody>
+          )}
         </table>
       </div>
     </div>
