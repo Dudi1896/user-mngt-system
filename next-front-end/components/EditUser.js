@@ -2,7 +2,6 @@ import { Dialog, Transition, Fragment } from '@headlessui/react';
 import { React, useState, useEffect } from 'react';
 
 export const EditUser = ({ userId, setResponseUser }) => {
-  const USER_API_BASE_URL = 'http://localhost:8080/api/v1/users';
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     id: '',
@@ -14,7 +13,7 @@ export const EditUser = ({ userId, setResponseUser }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(USER_API_BASE_URL + '/' + userId, {
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL + '/' + userId, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -52,7 +51,7 @@ export const EditUser = ({ userId, setResponseUser }) => {
 
   const updateUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(USER_API_BASE_URL + "/" + userId, {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL + "/" + userId, {
     method: "PUT",
     headers: {
         "Content-Type": "application/json",

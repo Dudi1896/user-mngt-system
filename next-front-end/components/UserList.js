@@ -3,7 +3,6 @@ import { useEffect, useState } from 'react';
 import { EditUser } from './EditUser';
 
 export const UserList = ({ user }) => {
-  const USER_API_BASE_URL = 'http://localhost:8080/api/v1/users';
   const [users, setUsers] = useState(null);
   const [loading, setLoading] = useState(true);
   const [userId, setUserId] = useState(null);
@@ -13,7 +12,7 @@ export const UserList = ({ user }) => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        const response = await fetch(USER_API_BASE_URL, {
+        const response = await fetch(process.env.NEXT_PUBLIC_API_URL, {
           method: 'GET',
           headers: {
             'Content-Type': 'application/json',
@@ -31,7 +30,7 @@ export const UserList = ({ user }) => {
 
   const deleteUser = (e, id) => {
     e.preventDefault();
-    fetch(USER_API_BASE_URL + '/' + id, {
+    fetch(process.env.NEXT_PUBLIC_API_URL + '/' + id, {
       method: 'DELETE',
     }).then((res) => {
       if (users) {

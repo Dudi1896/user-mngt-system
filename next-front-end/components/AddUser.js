@@ -3,7 +3,6 @@ import { Fragment, useState } from 'react';
 import { UserList } from './UserList';
 
 export const AddUser = () => {
-  const USER_API_BASE_URL = 'http://localhost:8080/api/v1/users';
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState({
     id: '',
@@ -34,7 +33,7 @@ export const AddUser = () => {
 
   const saveUser = async (e) => {
     e.preventDefault();
-    const response = await fetch(USER_API_BASE_URL, {
+    const response = await fetch(process.env.NEXT_PUBLIC_API_URL, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
