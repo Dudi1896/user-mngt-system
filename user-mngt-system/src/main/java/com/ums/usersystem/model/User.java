@@ -1,5 +1,17 @@
 package com.ums.usersystem.model;
 
+/**
+ * A model, often referred to as a Data Transfer Object (DTO) or ViewModel,
+ * represents a data structure used for transferring data between different
+ * parts of your application, such as between the controller and the view.
+ * Models are not necessarily tied to database entities but are designed
+ * to carry data between layers of your application, like the controller
+ * and the view. They are used to encapsulate and structure data in a way
+ * that is suitable for presentation or processing, often including only
+ * the necessary fields.Models may not have database annotations like@Entity
+ * or @Table because they are not intended for direct database persistence
+ */
+
 public class User {
     private long id;
     private String firstName;

@@ -1,6 +1,17 @@
 package com.ums.usersystem.entity;
-
 import jakarta.persistence.*;
+
+/**
+ * An entity typically represents a data object that is persisted in a
+ * database.Entities are usually used in the context of Object-Relational
+ * Mapping (ORM) frameworks like Hibernate or JPA (Java Persistence API).
+ * Entities are annotated with database-specific annotations
+ * (e.g., @Entity, @Table, @Column) to define their mapping to database
+ * tables and columns.Entities are part of the data layer and are responsible
+ * for modeling the structure of your database tables.They often have fields
+ * that correspond to database columns, and their instances represent
+ * individual records in the database.
+*/
 
 @Entity
 @Table(name = "users")
