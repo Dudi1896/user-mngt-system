@@ -20,8 +20,6 @@ export default function Home({ session }) {
   );
 }
 
-import React from 'react';
-
 export async function getServerSideProps(context) {
   const session = await getSession(context);
   return {
