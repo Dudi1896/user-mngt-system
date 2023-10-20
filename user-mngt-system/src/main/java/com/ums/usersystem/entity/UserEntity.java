@@ -1,4 +1,5 @@
 package com.ums.usersystem.entity;
+
 import jakarta.persistence.*;
 
 /**
