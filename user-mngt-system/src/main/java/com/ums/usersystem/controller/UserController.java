@@ -2,6 +2,7 @@ package com.ums.usersystem.controller;
 
 import com.ums.usersystem.model.User;
 import com.ums.usersystem.service.UserService;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -9,11 +10,13 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@CrossOrigin(value = "http://localhost:3000")
+@CrossOrigin(origins = "${cors.allowed-origins}")
 @RestController
 @RequestMapping("/api/v1")
 public class UserController {
 
+    @Value("${cors.allowed-origins}")
+    private String allowedOrigins;
     private final UserService userService;
 
     public UserController(UserService userService) {
