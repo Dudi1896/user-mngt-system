@@ -12,7 +12,7 @@ import java.util.Map;
 
 @CrossOrigin(origins = "${cors.allowed-origins}")
 @RestController
-@RequestMapping("/api/v1")
+@RequestMapping("/")
 public class UserController {
 
     @Value("${cors.allowed-origins}")

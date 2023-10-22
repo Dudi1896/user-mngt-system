@@ -1,5 +1,6 @@
-import { Dialog, Transition, Fragment } from '@headlessui/react';
-import { React, useState, useEffect } from 'react';
+import { Dialog, Transition } from '@headlessui/react';
+import { Fragment } from 'react';
+import React, { useState, useEffect } from 'react';
 
 export const EditUser = ({ userId, setResponseUser }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,7 +24,7 @@ export const EditUser = ({ userId, setResponseUser }) => {
         setUser(_user);
         setIsOpen(true);
       } catch (error) {
-        console.log(eror);
+        console.log(error);
       }
     };
     if (userId) {

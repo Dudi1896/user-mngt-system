@@ -1,0 +1,24 @@
+version: '3'
+services:
+  frontend:
+    build:
+      context: ./next-front-end # Path to your frontend application's Dockerfile
+    ports:
+      - "3000:3000"
+    networks:
+      - mynetwork
+
+  backend:
+    build:
+      context: ./user-mngt-system # Path to your backend application's Dockerfile
+      args:
+        - SPRING_PROFILES_ACTIVE=local
+    ports:
+      - "8080:8080"
+    env_file:
+      - .env
+    networks:
+      - mynetwork
+
+networks:
+  mynetwork:
