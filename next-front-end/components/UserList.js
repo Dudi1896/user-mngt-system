@@ -30,7 +30,7 @@ export const UserList = ({ user }) => {
 
   const deleteUser = (e, id) => {
     e.preventDefault();
-    fetch(process.env.NEXT_PUBLIC_API_URL + '/' + id, {
+    fetch(process.env.NEXT_PUBLIC_API_URL + "/" + id, {
       method: 'DELETE',
     }).then((res) => {
       if (users) {
