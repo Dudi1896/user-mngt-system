@@ -7,12 +7,12 @@ export const authOptions = {
     FacebookProvider({
         clientId: process.env.FACEBOOK_CLIENT_ID,
         clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
-        authorizationUrl: process.env.FACEBOOK_CLIENT_AUTH_URL,
+        authorizationUrl: "/api/auth/callback/facebook",
     }),
     GoogleProvider({
       clientId: process.env.GOOGLE_CLIENT_ID,
       clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-      authorizationUrl: process.env.GOOGLE_CLIENT_AUTH_URL,
+      authorizationUrl: "/api/auth/callback/google",
   }),
   ],
   secret: process.env.NEXTAUTH_SECRET,

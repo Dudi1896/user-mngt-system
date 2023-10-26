@@ -8,7 +8,7 @@ WORKDIR /app
 COPY target/user-mngt-system-0.2.1.jar /app/user-mngt-system-0.2.1.jar
 
 # Set the active profile using an environment variable
-ENV SPRING_PROFILES_ACTIVE=local
+ENV SPRING_PROFILES_ACTIVE=prod
 
 # Expose the port  Spring Boot app runs on
 EXPOSE 8080
