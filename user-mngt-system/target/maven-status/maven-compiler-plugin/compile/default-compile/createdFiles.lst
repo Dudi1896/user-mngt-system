@@ -1,0 +1,7 @@
+com\ums\usersystem\service\UserServiceImpl.class
+com\ums\usersystem\repository\UserRepository.class
+com\ums\usersystem\UserMngtSystemApplication.class
+com\ums\usersystem\controller\UserController.class
+com\ums\usersystem\entity\UserEntity.class
+com\ums\usersystem\model\User.class
+com\ums\usersystem\service\UserService.class
